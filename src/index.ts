@@ -1,11 +1,15 @@
-import express, { Request, Response } from 'express';
+import express, { Request, Response, Router } from 'express';
+import bodyParser from 'body-parser';
+
+import userRouter from './routes';
 
 const app = express();
 const port = process.env.PORT || 3000;
 
-app.get('/', (req: Request, res: Response) => {
-    res.send('Hello, Express!');
-});
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false }));
+
+app.use('/api', userRouter);
 
 app.listen(port, () => {
     console.log(`http://localhost:${port}`);
