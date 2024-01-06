@@ -15,12 +15,12 @@ export class PokemonController {
   }
 
   delete(req: Request, res: Response): void {
-    const pokemon = pokemonService.delete(parseInt(req.params.id));
+    const pokemon = pokemonService.delete(req.params.id);
     res.json(pokemon);
   }
 
   update(req: Request, res: Response): void {
-    const pokemon = pokemonService.update(parseInt(req.params.id), req.body);
+    const pokemon = pokemonService.update(req.params.id, req.body);
     res.json(pokemon);
   }
 }
