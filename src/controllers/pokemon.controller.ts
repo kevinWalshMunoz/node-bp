@@ -5,8 +5,8 @@ const pokemonService = new PokemonService();
 
 export class PokemonController {
   retrieve(req: Request, res: Response): void {
-    const users = pokemonService.retrieve();
-    res.json(users);
+    const pokemon = pokemonService.retrieve();
+    res.json(pokemon);
   }
 
   create(req: Request, res: Response): void {
