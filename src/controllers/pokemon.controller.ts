@@ -1,26 +1,26 @@
-import { Request, Response } from "express";
 import { PokemonService } from "../services/pokemon.service";
+import { Pokemon } from "../common/types";
 
 const pokemonService = new PokemonService();
 
 export class PokemonController {
-  retrieve(req: Request, res: Response): void {
+  retrieve(): Pokemon[] {
     const pokemon = pokemonService.retrieve();
-    res.json(pokemon);
+    return pokemon;
   }
 
-  create(req: Request, res: Response): void {
-    const pokemon = pokemonService.create(req.body);
-    res.json(pokemon);
+  create(newPokemon: Pokemon): Pokemon {
+    const pokemon = pokemonService.create(newPokemon);
+    return pokemon;
   }
 
-  delete(req: Request, res: Response): void {
-    const pokemon = pokemonService.delete(req.params.id);
-    res.json(pokemon);
+  delete(id: string): Pokemon | undefined {
+    const pokemon = pokemonService.delete(id);
+    return pokemon;
   }
 
-  update(req: Request, res: Response): void {
-    const pokemon = pokemonService.update(req.params.id, req.body);
-    res.json(pokemon);
+  update(id: string, newPokemon: Pokemon): Pokemon {
+    const pokemon = pokemonService.update(id, newPokemon);
+    return pokemon;
   }
 }
