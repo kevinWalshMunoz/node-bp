@@ -6,7 +6,7 @@ import userRouter from "./routes";
 import { specs } from "./swagger/swagger";
 
 const app = express();
-app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(specs));
+app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(specs));
 const port = process.env.PORT || 3000;
 
 app.use(bodyParser.json());

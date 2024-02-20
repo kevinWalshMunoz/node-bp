@@ -35,7 +35,7 @@ pokemonRouter.get("/pokemon", pokemonController.retrieve);
  *               type: string
  *     responses:
  *     200:
-*/
+ */
 pokemonRouter.post("/pokemon", pokemonController.create);
 
 /**
@@ -54,7 +54,7 @@ pokemonRouter.post("/pokemon", pokemonController.create);
  *           type: string
  *     responses:
  *     200:
-*/
+ */
 pokemonRouter.delete("/pokemon/:id", pokemonController.delete);
 
 /**
@@ -83,7 +83,7 @@ pokemonRouter.delete("/pokemon/:id", pokemonController.delete);
  *               type: string
  *     responses:
  *     200:
-*/
+ */
 pokemonRouter.put("/pokemon/:id", pokemonController.update);
 
 export default pokemonRouter;

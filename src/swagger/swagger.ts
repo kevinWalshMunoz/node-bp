@@ -1,14 +1,14 @@
-import swaggerJsdoc from 'swagger-jsdoc';
+import swaggerJsdoc from "swagger-jsdoc";
 
 const options = {
   swaggerDefinition: {
     info: {
-      title: 'API Documentation',
-      version: '1.0.0',
-      description: 'Documentación de la API para tu aplicación Node.js',
+      title: "API Documentation",
+      version: "1.0.0",
+      description: "Documentación de la API para tu aplicación Node.js",
     },
   },
-  apis: ['*/*.ts']
+  apis: ["*/*.ts"],
 };
 
 export const specs = swaggerJsdoc(options);
