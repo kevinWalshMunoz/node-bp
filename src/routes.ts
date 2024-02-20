@@ -1,5 +1,7 @@
 import { Router } from "express";
+
 import { PokemonController } from "./controllers/pokemon.controller";
+import  { Pokemon } from "./common/types";
 
 const pokemonRouter = Router();
 const pokemonController = new PokemonController();
@@ -13,7 +15,9 @@ const pokemonController = new PokemonController();
  *       200:
  *         description: Returns a list of Pokemons.
  */
-pokemonRouter.get("/pokemon", pokemonController.retrieve);
+pokemonRouter.get("/pokemon", function (req, res) {
+    res.json(pokemonController.retrieve());
+});
 
 /**
  * @swagger
@@ -36,7 +40,10 @@ pokemonRouter.get("/pokemon", pokemonController.retrieve);
  *     responses:
  *     200:
  */
-pokemonRouter.post("/pokemon", pokemonController.create);
+pokemonRouter.post("/pokemon", function (req, res) {
+    const newPokemon: Pokemon = req.body;
+    res.json(pokemonController.create(newPokemon));
+});
 
 /**
  * @swagger
@@ -55,7 +62,10 @@ pokemonRouter.post("/pokemon", pokemonController.create);
  *     responses:
  *     200:
  */
-pokemonRouter.delete("/pokemon/:id", pokemonController.delete);
+pokemonRouter.delete("/pokemon/:id", function (req, res) {
+    const id: string = req.params.id;
+    res.json(pokemonController.delete(id));
+});
 
 /**
  * @swagger
@@ -84,6 +94,10 @@ pokemonRouter.delete("/pokemon/:id", pokemonController.delete);
  *     responses:
  *     200:
  */
-pokemonRouter.put("/pokemon/:id", pokemonController.update);
+pokemonRouter.put("/pokemon/:id", function (req, res) {
+    const id: string = req.params.id;
+    const newPokemon: Pokemon = req.body;
+    res.json(pokemonController.update(id, newPokemon));
+});
 
 export default pokemonRouter;
