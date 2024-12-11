@@ -1,0 +1,70 @@
+{
+    "mode": "debug",
+    "drive": {
+        "root": "drive",
+        "file": {
+            "cycle": "cycle.json",
+            "mission": "data.json",
+            "operation": "operation.json",
+            "tetherPoint": "tether_point.json",
+            "user": "user.json"
+        }
+    },
+    "topics": {
+        "pub": {
+            "machineMission": "machine/mission",
+            "machineDrive": "machine/drive",
+            "machineError": "machine/error",
+            "machineTetherPoint":"machine/tetherpoint",
+            "machineValves": "machine/valves",
+            "armRequest": "machine/arm",
+            "baseRequest": "machine/base"
+        },
+        "sub": {
+            "missionStatus": "machine/status/mission",
+            "missionProgress": "machine/status/mission/progress",
+            "machineIndicators": "machine/status/indicators",
+            "machineDrive": "machine/status/drive",
+            "machineError": "machine/status/error",
+            "machineTetherPoint":"machine/status/tetherpoint",
+            "valvesStatus": "machine/status/valves",
+            "armStatus": "machine/status/arm",
+            "baseStatus": "machine/status/base"
+        }
+    },
+    "sockets": {
+        "emit": {
+            "missionStatus": "missionStatus",
+            "missionProgress": "missionProgress",
+            "machineIndicators": "machineIndicators",
+            "machineDrive":"machineDrive",
+            "machineError": "machineError",
+            "machineTetherPoint":"machineTetherPoint",
+            "valvesStatus": "valvesStatus",
+            "armStatus": "armStatus",
+            "baseStatus": "baseStatus"
+        },
+        "listen": {
+            "getMissionList": "getMissionList",
+            "getMission": "getMission",
+            "missionRequest": "missionRequest",
+            "driveRequest": "driveRequest",
+            "tetherPointRequest": "tetherPointRequest",
+            "errorRequest": "errorRequest",
+            "missionStatus": "missionStatus",
+            "missionProgress": "missionProgress",
+            "machineIndicators": "machineIndicators",
+            "machineDrive":"machineDrive",
+            "machineError": "machineError",
+            "machineTetherPoint":"machineTetherPoint",
+            "login": "login",
+            "valvesRequest": "valvesRequest",
+            "valvesStatus": "valvesStatus",
+            "armRequest": "armRequest",
+            "armStatus": "armStatus",
+            "baseRequest": "baseRequest",
+            "baseStatus": "baseStatus"
+        },
+        "disconnect": "disconnect"
+    }
+}
